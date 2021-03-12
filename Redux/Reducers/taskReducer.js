@@ -10,14 +10,15 @@ export default function taskReducers(state = initialState, action) {
       const { id, task } = action.payload
       return {
         ...state,
-        task_list: [ ...state.task_list, { id, task } ],
+        task_list: [ ...state.task_list, { id, task, completed: 'Not Done' } ],
       }
     }
+
     case 'DELETE_TASK': {
       const { id } = action.payload
       return {
         ...state,
-        task_list: state.task_list.filter((todo) => todo.id != id)
+        task_list: state.task_list.filter((todo) => todo.id !== id)
       }
     }
     
@@ -32,12 +33,12 @@ export default function taskReducers(state = initialState, action) {
               task: newTask,
               completed: status
             }
-          }else{
-            return data
           }
+          return data
         })
       }
     }
+    
     default:
       return state
   }

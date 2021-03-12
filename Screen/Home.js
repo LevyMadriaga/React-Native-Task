@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, StyleSheet, TextInput, Button, FlatList, Alert } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Button, FlatList, Alert, Picker } from 'react-native';
 import { connect } from 'react-redux';
 import ListTask from './ListTaskScreen'
 import { deleteTask, updateTask } from '../Redux/Action/action'
@@ -19,15 +19,35 @@ function TaskApp({ task_list, deleteTask, updateTask }) {
     deleteTask(id)
   }
 
+  useEffect(() => {
+    let unmounted = false
+    console.log('Running Affect to Fetch Data')
+
+    setTimeout(() => {
+      console.log('Data Loaded for page')
+      
+      if(!unmounted) {
+        task_list
+      }
+    }, 3000)
+
+    return  () => {
+      unmounted = true
+    }
+  }, [task_list, task])
+
   return( 
     <View style={style.container}>
       <View style={style.content}>
-        <TextInput 
-          onChangeText={(text) => setFilterTask(text)}
-          value={filterTask}
-          placeholder="Filter Task"
-          style={style.search}
-        />
+        <Text>Filter Task</Text>
+        <Picker
+          selectedValue={filterTask} 
+          onValueChange={(itemValue, itemIndex) => setFilterTask(itemValue)}
+        >
+          <Picker.Item label="All" />
+          <Picker.Item label="Done" value={filteredData,'Done'} />
+          <Picker.Item label="Not Done" value={filteredData,'Not'} />
+        </Picker>
         <Button 
           title="Add Task"
           onPress={() => {

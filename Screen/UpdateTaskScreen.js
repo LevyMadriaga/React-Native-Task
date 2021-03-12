@@ -22,6 +22,10 @@ function UpdateTask({ updateTask , route }) {
 
   return (
     <View style={styles.container}>
+      <View style={styles.fixToText}>
+        <Text><Text style={styles.textContent}>Task Title:</Text> {oldTask.item.task}</Text>
+        <Text><Text style={styles.textContent}>Status:</Text> {oldTask.item.completed}</Text>
+      </View>
       <TextInput
         onChangeText={(text) => setTask(text)}
         placeholder="Enter New Task Title"
@@ -55,6 +59,15 @@ const styles = StyleSheet.create({
   textInput: {
     borderBottomColor: 'black',
     borderBottomWidth: 1
+  },
+  fixToText: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20
+  },
+  textContent: {
+    fontWeight: 'bold'
   },
   picker: {
     height: 20, 

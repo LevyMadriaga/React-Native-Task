@@ -26,25 +26,25 @@ function TaskItem({ item , deleteHandler }) {
       <Text style={styles.taskItem}><Text style={styles.taskContent}>Task Title:</Text> {item.item.task}</Text>
       <Text style={styles.taskItem}><Text style={styles.taskContent}>Status:</Text> {item.item.completed}</Text>
       <View style={styles.fixToText}>
-      <View style={styles.deleteButton}>
-        <Button 
-          title="Delete" 
-          color="#d11a2a"
-          onPress={AlertMessage} 
-        />
-      </View>
-      <View>
-        <Button 
-          title="Update task" 
-          onPress={() => {
-            navigation.navigate('UpdateTask', {
-              oldTask: item
-            })
-          }}
-          style={styles.updateButton} 
-          color="#4CAF50"
-        />
-      </View>
+        <View style={styles.deleteButton}>
+          <Button 
+            title="Delete" 
+            color="#d11a2a"
+            onPress={AlertMessage} 
+          />
+        </View>
+        <View>
+          <Button 
+            title="Edit task" 
+            onPress={() => {
+              navigation.navigate('UpdateTask', {
+                oldTask: item
+              })
+            }}
+            style={styles.updateButton} 
+            color="#4CAF50"
+          />
+        </View>
       </View>
     </View>
   )
