@@ -39,7 +39,7 @@ function UpdateTask({ updateTask , route }) {
         >
           <Picker.Item label="Select Status"  disabled={true} />
           <Picker.Item label="Done" value="Done" />
-          <Picker.Item label="Not Done" value="Not Done" />
+          <Picker.Item label="Pending" value="Pending" />
         </Picker>
       </View>
       <View style={styles.buttonSubmit}>

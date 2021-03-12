@@ -10,7 +10,7 @@ export default function taskReducers(state = initialState, action) {
       const { id, task } = action.payload
       return {
         ...state,
-        task_list: [ ...state.task_list, { id, task, completed: 'Not Done' } ],
+        task_list: [ ...state.task_list, { id, task, completed: 'Pending' } ],
       }
     }
 

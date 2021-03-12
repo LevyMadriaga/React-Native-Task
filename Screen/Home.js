@@ -46,7 +46,7 @@ function TaskApp({ task_list, deleteTask, updateTask }) {
         >
           <Picker.Item label="All" />
           <Picker.Item label="Done" value={filteredData,'Done'} />
-          <Picker.Item label="Not Done" value={filteredData,'Not'} />
+          <Picker.Item label="Pending" value={filteredData,'Pending'} />
         </Picker>
         <Button 
           title="Add Task"
